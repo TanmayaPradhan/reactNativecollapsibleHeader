@@ -1,6 +1,6 @@
 {
   "name": "@tanmaya_pradhan/animated-collapsible-header",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "collapsible animated header",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,13 @@
     "header"
   ],
   "author": "tanmaya pradhan",
+  "homepage": "https://github.com/TanmayaPradhan/reactNativecollapsibleHeader",
+  "bugs": {
+    "url": "https://github.com/TanmayaPradhan/reactNativecollapsibleHeader"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TanmayaPradhan/reactNativecollapsibleHeader.git"
+  },
   "license": "ISC"
 }
