@@ -1,0 +1,14 @@
+{
+  "name": "@tanmaya_pradhan/animated-collapsible-header",
+  "version": "0.0.7",
+  "description": "collapsible animated header",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "header"
+  ],
+  "author": "tanmaya pradhan",
+  "license": "ISC"
+}
