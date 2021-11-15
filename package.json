@@ -1,6 +1,6 @@
 {
   "name": "@tanmaya_pradhan/animated-collapsible-header",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "collapsible animated header",
   "main": "index.js",
   "scripts": {
