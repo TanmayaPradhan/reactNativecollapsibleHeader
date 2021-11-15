@@ -22,6 +22,6 @@ Declarative Usage
 
 Properties
 -------------------------------------------
+<img width="899" alt="Screenshot 2021-11-15 at 11 09 34 PM" src="https://user-images.githubusercontent.com/40633712/141828571-8a3be982-e1a9-42f5-ae9f-1fbcc35cf05f.png">
 
-[animated-collapsible-header props.xlsx](https://github.com/TanmayaPradhan/reactNativecollapsibleHeader/files/7540579/animated-collapsible-header.props.xlsx)
 
