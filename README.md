@@ -22,6 +22,21 @@ Declarative Usage
 
 Properties
 -------------------------------------------
-<img width="899" alt="Screenshot 2021-11-15 at 11 09 34 PM" src="https://user-images.githubusercontent.com/40633712/141828571-8a3be982-e1a9-42f5-ae9f-1fbcc35cf05f.png">
+
+| Prop                  | Description                                                      | Default                                    |
+| --------------------- | ---------------------------------------------------------------- | ------------------------------------------ |
+| headerLabel           | Name the Header title                                            | ‘Welcome’                                  |
+| headerLabelFontFamily | Font family of the Header title                                  | Default                                    |
+| renderItem            | This is the list view which will be shown in FlatList renderItem | default list                               |
+| listData              | This is the list data which will be shown in FlatList data       | Default                                    |
+| descLabel             | Name the Description title                                       | 'React Native'                             |
+| descLabelFontFamily   | Font family of the Description title                             | Default                                    |
+| icon                  | Center icon                                                      | Default                                    |
+| headerHeight          | Height of the Header after collapsing and expanding              | headerHeight = {large: 250, collapse: 120} |
+| circleHeight          | Center icon height after collapsing and expanding                | circleHeight = {large: 150, collapse: 80}  |
+| fontSize              | FontSize after collapsing and expanding                          | fontSize = {large: 30, collapse: 20}       |
+| headerStyle           | Header background colour change                                  | headerStyle={backgroundColor: '#024aad'}   |
+| onIconPress           | Center icon click                                                | Default                                    |
+
 
 
