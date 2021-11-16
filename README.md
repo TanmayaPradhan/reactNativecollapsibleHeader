@@ -8,9 +8,9 @@ npm i @tanmaya_pradhan/animated-collapsible-header
 Usage
 -------------------------------------------
 To use the collapsible header you must import AnimatedHeaderScreen
-
+```ruby
 import AnimatedHeaderScreen from '@tanmaya_pradhan/animated-collapsible-header';
-
+```
 Declarative Usage
 -------------------------------------------
 ```ruby
