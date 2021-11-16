@@ -1,4 +1,4 @@
-# animated-collapsible-header
+# React Native animated-collapsible-header
 -------------------------------------------
 
 Installation
@@ -13,7 +13,9 @@ import AnimatedHeaderScreen from '@tanmaya_pradhan/animated-collapsible-header';
 
 Declarative Usage
 -------------------------------------------
+```ruby
 <AnimatedHeaderScreen headerLabel='Welcome' descLabel='React Native' headerStyle={{backgroundColor: '#024aad'}} />
+```
 
 ![collapsible-header](https://user-images.githubusercontent.com/40633712/141827999-2e3ad009-2f3d-4218-8744-75347ef87993.gif)
 
