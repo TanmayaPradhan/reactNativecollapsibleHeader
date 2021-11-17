@@ -42,7 +42,8 @@ Properties
 | headerStyle           | Header background colour change                                  | headerStyle={backgroundColor: '#024aad'}   |
 | onIconPress           | Center icon click                                                | Default                                    |
 | borderSvgColor        | Border color                                                     | '#D9FAFB'                                  |
-| headerBottomRadius    | Bottom Border radius                                             | 50                                         |
+| headerBottomRadius    | Bottom border radius                                             | 50                                         |
+| borderSvgWidth        | header border width                                              | 4                                         |
 
 
 
