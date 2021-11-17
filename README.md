@@ -3,8 +3,10 @@
 
 Installation
 -------------------------------------------
-npm i @tanmaya_pradhan/animated-collapsible-header
-
+```ruby
+npm install --save @tanmaya_pradhan/animated-collapsible-header
+npm install --save react-native-svg
+```
 Usage
 -------------------------------------------
 To use the collapsible header you must import AnimatedHeaderScreen
