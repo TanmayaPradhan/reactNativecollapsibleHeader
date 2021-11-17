@@ -6,8 +6,6 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#024aad',
     alignItems: 'center',
-    borderBottomLeftRadius: headerBottomRadius,
-    borderBottomRightRadius: headerBottomRadius,
     zIndex: 5,
   },
   centerLogoWrapper: {

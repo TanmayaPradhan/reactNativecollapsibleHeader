@@ -4,9 +4,22 @@ import {styles, cardHeight, cardMargin} from './styles';
 import iconLogo from '../commonUI/imgs/icon_logo.png';
 import AnimatedHeader from '../commonUI/animatedHeader';
 
-const AnimatedHeaderScreen = ({headerLabel,headerLabelFontFamily,renderItem, listData, descLabel,descLabelFontFamily, icon = iconLogo, headerHeight = {large: 250, collapse: 120},
+const AnimatedHeaderScreen = ({
+  headerLabel,
+  headerLabelFontFamily,
+  renderItem,
+  listData,
+  descLabel,
+  descLabelFontFamily,
+  icon = iconLogo,
+  headerHeight = {large: 250, collapse: 120},
   circleHeight = {large: 150, collapse: 80},
-  fontSize = {large: 30, collapse: 20},headerStyle={backgroundColor: '#024aad'}, onIconPress}) => {
+  fontSize = {large: 30, collapse: 20},
+  headerStyle = {backgroundColor: '#024aad'},
+  onIconPress,
+  borderSvgColor = '#D9FAFB',
+  headerBottomRadius = 50,
+}) => {
   const [inputRange, setInputRange] = React.useState([]);
   const [isAnimatable, setIsAnimatable] = React.useState(false);
   const data = listData ?? Array.from({length: 10});
@@ -27,15 +40,15 @@ const AnimatedHeaderScreen = ({headerLabel,headerLabelFontFamily,renderItem, lis
     setInputRange(input_range);
   };
 
-  const get_renderItem = ({item, index}) => (
-    renderItem ? renderItem(item, index) : (
-    <View style={styles.renderItemContainer}>
-      <View style={[styles.row, styles.shadow]} />
-    </View>
-    )
-    
-  );
-  
+  const get_renderItem = ({item, index}) =>
+    renderItem ? (
+      renderItem(item, index)
+    ) : (
+      <View style={styles.renderItemContainer}>
+        <View style={[styles.row, styles.shadow]} />
+      </View>
+    );
+
   const func_onContentSizeChange = (width, height) => {
     let animatable = height > (cardHeight + cardMargin * 2) * 5;
     setIsAnimatable(animatable);
@@ -58,6 +71,8 @@ const AnimatedHeaderScreen = ({headerLabel,headerLabelFontFamily,renderItem, lis
             nameText={descLabel}
             isAnimatable={isAnimatable}
             headerStyle={headerStyle}
+            borderSvgColor={borderSvgColor}
+            headerBottomRadius={headerBottomRadius}
           />
         )}
         <FlatList

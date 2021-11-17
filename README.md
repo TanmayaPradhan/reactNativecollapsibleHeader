@@ -39,6 +39,9 @@ Properties
 | fontSize              | FontSize after collapsing and expanding                          | fontSize = {large: 30, collapse: 20}       |
 | headerStyle           | Header background colour change                                  | headerStyle={backgroundColor: '#024aad'}   |
 | onIconPress           | Center icon click                                                | Default                                    |
+| borderSvgColor        | Border color                                                     | '#D9FAFB'                                  |
+| headerBottomRadius    | Bottom Border radius                                             | 50                                         |
+
 
 
 

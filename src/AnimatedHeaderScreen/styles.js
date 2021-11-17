@@ -11,10 +11,10 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fefefe',
   },
-  renderItemContainer:{
-    padding: 0
+  renderItemContainer: {
+    padding: 0,
   },
-  row:{
+  row: {
     height: cardHeight,
     margin: cardMargin,
     backgroundColor: '#fff',
@@ -22,13 +22,13 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 20,
   },
-  shadow:{
+  shadow: {
     shadowColor: '#000',
-    shadowOffset:{
+    shadowOffset: {
       width: 0,
       height: 5,
     },
     shadowOpacity: 0.4,
-    shadowRadius: 5
-  }
+    shadowRadius: 5,
+  },
 });

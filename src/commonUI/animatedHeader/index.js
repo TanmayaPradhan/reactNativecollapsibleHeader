@@ -11,7 +11,6 @@ import {
   styles,
   textViewHeight,
   windowWidth,
-  headerBottomRadius
 } from './styles';
 import Svg, {Path} from 'react-native-svg';
 
@@ -44,9 +43,10 @@ const AnimatedHeader = ({
   isAnimatable,
   headerLabelFontFamily,
   descLabelFontFamily,
-  headerStyle= {backgroundColor: '#024aad'},
+  headerStyle = {backgroundColor: '#024aad'},
+  borderSvgColor,
+  headerBottomRadius,
 }) => {
-
   const [headerLogo_x_position, setHeaderLogo_x_position] = React.useState(0);
   const headerLogo_y_position =
     headerHeight?.collapse - textViewHeight - circleHeight?.collapse;
@@ -144,7 +144,7 @@ const AnimatedHeader = ({
     return (
       <AnimatedButton
         onPress={onLogoPress}
-        onLayout={(event) => {
+        onLayout={event => {
           const {x, y, height, width} = event?.nativeEvent?.layout;
           headerLogo_x_position === 0 && setHeaderLogo_x_position(x);
         }}
@@ -182,7 +182,12 @@ const AnimatedHeader = ({
    */
   const welcomeText_fontsize_animation = scrollY.interpolate({
     inputRange: inputRange,
-    outputRange: [fontSize?.large, fontSize?.large, fontSize?.large, fontSize?.collapse],
+    outputRange: [
+      fontSize?.large,
+      fontSize?.large,
+      fontSize?.large,
+      fontSize?.collapse,
+    ],
     extrapolateRight: 'clamp',
   });
   const welcomeText_x_transition_animation = scrollY.interpolate({
@@ -198,7 +203,7 @@ const AnimatedHeader = ({
   const func_renderWelcomeText = () => {
     return (
       <Animated.View
-        onLayout={(event) => {
+        onLayout={event => {
           const {x, y, height, width} = event?.nativeEvent?.layout;
           welcomeText_x_position === 0 && setwelcomeText_x_position(x);
         }}
@@ -211,7 +216,14 @@ const AnimatedHeader = ({
             ],
           },
         ]}>
-        <Animated.Text style={[styles.text,{fontSize: welcomeText_fontsize_animation, fontFamily: headerLabelFontFamily ?? 'Arial'}]}>
+        <Animated.Text
+          style={[
+            styles.text,
+            {
+              fontSize: welcomeText_fontsize_animation,
+              fontFamily: headerLabelFontFamily ?? 'Arial',
+            },
+          ]}>
           {welcomeText}
         </Animated.Text>
       </Animated.View>
@@ -241,7 +253,7 @@ const AnimatedHeader = ({
   const func_renderNameText = () => {
     return (
       <Animated.View
-        onLayout={(event) => {
+        onLayout={event => {
           // NOTE: This calculation required to set the left boundary of this view.
           // Otherwise it will got out side of the screen
 
@@ -257,7 +269,14 @@ const AnimatedHeader = ({
             ],
           },
         ]}>
-        <Animated.Text style={[styles.textName, {fontSize: welcomeText_fontsize_animation,fontFamily: descLabelFontFamily ?? 'Arial'}]}>
+        <Animated.Text
+          style={[
+            styles.textName,
+            {
+              fontSize: welcomeText_fontsize_animation,
+              fontFamily: descLabelFontFamily ?? 'Arial',
+            },
+          ]}>
           {nameText}
         </Animated.Text>
       </Animated.View>
@@ -275,30 +294,31 @@ const AnimatedHeader = ({
   const y2_collapse = headerHeight?.collapse;
 
   let largePath = `M${x1},${y1} ${x2},${y2 - headerBottomRadius - 10} C${x1} ${
-    y2 - 30
-  } ${x1 + 10} ${y2 - 5} ${x2 + headerBottomRadius} ${y2 - 5} L${
+    y2 - headerBottomRadius
+  } ${x1} ${y2 - 5} ${x2 + headerBottomRadius} ${y2 - 5} L${
     x3 - headerBottomRadius - 10
-  } ${y2 - 5} C${x3 - headerBottomRadius} ${y2 - 5} ${x3 - 5} ${y2 - 5} ${
+  } ${y2 - 5} C${x3 - headerBottomRadius} ${y2 - 5} ${x3 - 10} ${y2 - 5} ${
     x3 - 5
   } ${y2 - headerBottomRadius} L${x4 - 5} ${y4} Z`;
 
-  let hidePath = `M${x1 - 100},${y1 - 50} ${x2 - 100},${
-    y2 - headerBottomRadius - 10
-  } C${x1} ${y2 - 30} ${x1 + 10} ${y2 - 5} ${x2 + headerBottomRadius} ${
-    y2 - 5
-  } L${x3 - headerBottomRadius - 10} ${y2 - 5} C${x3 - headerBottomRadius} ${
-    y2 - 5
-  } ${x3 - 5} ${y2 - 5} ${x3 - 5} ${y2 - headerBottomRadius} L${x4 + 50} ${
-    y4 - 50
-  } Z`;
+  const valueForHideX1 = -100;
+  const valueForHideY1 = -100;
+  const valueForHideY2 = y2 + 100;
+  let hidePath = `M${valueForHideX1},${valueForHideY1} ${valueForHideX1},${valueForHideY2} C${valueForHideX1} ${valueForHideY2} ${valueForHideX1} ${valueForHideY2} ${valueForHideX1} ${valueForHideY2} L${
+    x3 + 100
+  } ${valueForHideY2} C${x3 - headerBottomRadius} ${valueForHideY2} ${
+    x3 + 100
+  } ${valueForHideY2} ${x3 + 100} ${valueForHideY2} L${
+    x4 + 100
+  } ${valueForHideY1} Z`;
 
   let collapsePath = `M${x1},${y1} ${x2},${
     y2_collapse - headerBottomRadius - 10
-  } C${x1} ${y2_collapse - 30} ${x1 + 10} ${y2_collapse - 5} ${
+  } C${x1} ${y2_collapse - headerBottomRadius} ${x1} ${y2_collapse - 5} ${
     x2 + headerBottomRadius
   } ${y2_collapse - 5} L${x3 - headerBottomRadius - 10} ${y2_collapse - 5} C${
     x3 - headerBottomRadius
-  } ${y2_collapse - 5} ${x3 - 5} ${y2_collapse - 5} ${x3 - 5} ${
+  } ${y2_collapse - 5} ${x3 - 10} ${y2_collapse - 5} ${x3 - 5} ${
     y2_collapse - headerBottomRadius
   } L${x4 - 5} ${y4} Z`;
 
@@ -317,7 +337,7 @@ const AnimatedHeader = ({
             strokeDasharray={pathLength}
             strokeDashoffset={animatedPathLength}
             d={getAnimatedPath}
-            stroke="#D9FAFB"
+            stroke={borderSvgColor}
             strokeWidth={4}
             strokeLinecap="round"
           />
@@ -331,8 +351,13 @@ const AnimatedHeader = ({
         styles.container,
         {
           height: isAnimatable ? headerHeightAnim : headerHeight?.large,
+          borderBottomLeftRadius: headerBottomRadius,
+          borderBottomRightRadius: headerBottomRadius,
         },
-        headerStyle?.backgroundColor && {backgroundColor: headerStyle?.backgroundColor}
+        headerStyle?.backgroundColor && {
+          backgroundColor: headerStyle?.backgroundColor,
+        },
+        ,
       ]}>
       {func_renderSvg()}
       {func_renderWelcomeText()}
