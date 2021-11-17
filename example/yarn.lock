@@ -1186,10 +1186,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@tanmaya_pradhan/animated-collapsible-header@^0.0.10":
-  "integrity" "sha512-kbJW42V+074SSVOcWjI2fxyePI6kS854zR/fEYE/Vwqb/VDXgot7JkbBI8TEQKgy4wK1YLEyCrenu4qG6aJ0hw=="
-  "resolved" "https://registry.npmjs.org/@tanmaya_pradhan/animated-collapsible-header/-/animated-collapsible-header-0.0.10.tgz"
-  "version" "0.0.10"
+"@tanmaya_pradhan/animated-collapsible-header@^0.0.13":
+  "integrity" "sha512-MIynZf1FT0ZvooTDfabt4FZ6U0PUHJfdto/OPcSTgwii7Zq3w+HrWN1aOMGk9eaE2Lg1fsgaM6EGOAcEkG5UzA=="
+  "resolved" "https://registry.npmjs.org/@tanmaya_pradhan/animated-collapsible-header/-/animated-collapsible-header-0.0.13.tgz"
+  "version" "0.0.13"
 
 "@tootallnate/once@1":
   "integrity" "sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw=="
