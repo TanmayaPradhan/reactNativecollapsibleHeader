@@ -19,6 +19,7 @@ const AnimatedHeaderScreen = ({
   onIconPress,
   borderSvgColor = '#D9FAFB',
   headerBottomRadius = 50,
+  borderSvgWidth = 4
 }) => {
   const [inputRange, setInputRange] = React.useState([]);
   const [isAnimatable, setIsAnimatable] = React.useState(false);
@@ -54,7 +55,7 @@ const AnimatedHeaderScreen = ({
     setIsAnimatable(animatable);
   };
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <View style={styles.safeArea}>
       <View style={styles.container}>
         {inputRange?.length > 0 && (
           <AnimatedHeader
@@ -73,6 +74,7 @@ const AnimatedHeaderScreen = ({
             headerStyle={headerStyle}
             borderSvgColor={borderSvgColor}
             headerBottomRadius={headerBottomRadius}
+            borderSvgWidth={borderSvgWidth}
           />
         )}
         <FlatList
@@ -85,7 +87,7 @@ const AnimatedHeaderScreen = ({
           onContentSizeChange={func_onContentSizeChange}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

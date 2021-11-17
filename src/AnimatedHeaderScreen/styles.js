@@ -5,11 +5,11 @@ export const cardMargin = 16;
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#891393cc',
+    backgroundColor: 'transparent',
   },
   container: {
     flex: 1,
-    backgroundColor: '#fefefe',
+    backgroundColor: 'transparent',
   },
   renderItemContainer: {
     padding: 0,

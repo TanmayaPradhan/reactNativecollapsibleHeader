@@ -45,6 +45,7 @@ const AnimatedHeader = ({
   descLabelFontFamily,
   headerStyle = {backgroundColor: '#024aad'},
   borderSvgColor,
+  borderSvgWidth,
   headerBottomRadius,
 }) => {
   const [headerLogo_x_position, setHeaderLogo_x_position] = React.useState(0);
@@ -58,8 +59,13 @@ const AnimatedHeader = ({
   const [pathLength, setPathLength] = React.useState(0);
   const pathRef = React.useRef(null);
   React.useEffect(() => {
-    animatedPathLength.setValue(pathLength);
-    func_startSvgAnimation();
+    /**
+     * IF LIST LENGTH IS GREATER THAN THE SCREEN THEN IT WILL BE ANIMATED
+     */
+    if(isAnimatable){
+      animatedPathLength.setValue(pathLength);
+      func_startSvgAnimation();
+    } 
   }, [pathLength]);
   const func_startSvgAnimation = () => {
     Animated.timing(animatedPathLength, {
@@ -122,6 +128,7 @@ const AnimatedHeader = ({
     ],
     extrapolate: 'clamp',
   });
+  
   /**
    * @description: Header Logo position transition in Y-axis
    */
@@ -301,26 +308,40 @@ const AnimatedHeader = ({
     x3 - 5
   } ${y2 - headerBottomRadius} L${x4 - 5} ${y4} Z`;
 
+  let hidePath;
+  let collapsePath;
   const valueForHideX1 = -100;
   const valueForHideY1 = -100;
   const valueForHideY2 = y2 + 100;
-  let hidePath = `M${valueForHideX1},${valueForHideY1} ${valueForHideX1},${valueForHideY2} C${valueForHideX1} ${valueForHideY2} ${valueForHideX1} ${valueForHideY2} ${valueForHideX1} ${valueForHideY2} L${
-    x3 + 100
-  } ${valueForHideY2} C${x3 - headerBottomRadius} ${valueForHideY2} ${
-    x3 + 100
-  } ${valueForHideY2} ${x3 + 100} ${valueForHideY2} L${
-    x4 + 100
-  } ${valueForHideY1} Z`;
 
-  let collapsePath = `M${x1},${y1} ${x2},${
-    y2_collapse - headerBottomRadius - 10
-  } C${x1} ${y2_collapse - headerBottomRadius} ${x1} ${y2_collapse - 5} ${
-    x2 + headerBottomRadius
-  } ${y2_collapse - 5} L${x3 - headerBottomRadius - 10} ${y2_collapse - 5} C${
-    x3 - headerBottomRadius
-  } ${y2_collapse - 5} ${x3 - 10} ${y2_collapse - 5} ${x3 - 5} ${
-    y2_collapse - headerBottomRadius
-  } L${x4 - 5} ${y4} Z`;
+  if(isAnimatable){
+    
+    hidePath = `M${valueForHideX1},${valueForHideY1} ${valueForHideX1},${valueForHideY2} C${valueForHideX1} ${valueForHideY2} ${valueForHideX1} ${valueForHideY2} ${valueForHideX1} ${valueForHideY2} L${
+      x3 + 100
+    } ${valueForHideY2} C${x3 - headerBottomRadius} ${valueForHideY2} ${
+      x3 + 100
+    } ${valueForHideY2} ${x3 + 100} ${valueForHideY2} L${
+      x4 + 100
+    } ${valueForHideY1} Z`;
+  
+    collapsePath = `M${x1},${y1} ${x2},${
+      y2_collapse - headerBottomRadius - 10
+    } C${x1} ${y2_collapse - headerBottomRadius} ${x1} ${y2_collapse - 5} ${
+      x2 + headerBottomRadius
+    } ${y2_collapse - 5} L${x3 - headerBottomRadius - 10} ${y2_collapse - 5} C${
+      x3 - headerBottomRadius
+    } ${y2_collapse - 5} ${x3 - 10} ${y2_collapse - 5} ${x3 - 5} ${
+      y2_collapse - headerBottomRadius
+    } L${x4 - 5} ${y4} Z`;
+  }
+  else{
+    /**
+     * IF IT IS NOT ANIMATABLE THEN, largePath is set to hidePath and collapsePath
+     */
+    hidePath = largePath;
+    collapsePath = largePath;
+  }
+  
 
   const getAnimatedPath = scrollY.interpolate({
     inputRange: inputRange,
@@ -338,7 +359,7 @@ const AnimatedHeader = ({
             strokeDashoffset={animatedPathLength}
             d={getAnimatedPath}
             stroke={borderSvgColor}
-            strokeWidth={4}
+            strokeWidth={borderSvgWidth}
             strokeLinecap="round"
           />
         </AnimatedSvg>
